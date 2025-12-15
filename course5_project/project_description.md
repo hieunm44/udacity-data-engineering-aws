@@ -92,7 +92,7 @@ In addition, configure the task dependencies so that after the dependencies are 
 ![](https://video.udacity-data.com/topher/2024/September/66f695a0_final-dag/final-dag.jpeg)
 
 ## Completed DAG Dependencies Image Description
-The Begin_execution task should be followed by both Stage_events and Stage_songs. These staging tasks should both be followed by the task Load_songplays_fact_table. Completing the Load_songplays_fact_table should trigger four tasks at the same time: Load_artist_dim_table, Load_song_dim_table, Load_time_dim_table, and Load_user_dim_table. After completing all of these four tasks, the task Run_dadta_quality_checks_should_run. And, finally, run the Stop_execution task.
+The `Begin_execution` task should be followed by both `Stage_events` and `Stage_songs`. These staging tasks should both be followed by the task `Load_songplays_fact_table`. Completing the `Load_songplays_fact_table` should trigger four tasks at the same time: `Load_artist_dim_table, Load_song_dim_table, Load_time_dim_table, Load_user_dim_table`. After completing all of these four tasks, the task `Run_data_quality_checks` should run. And, finally, run the `Stop_execution` task.
 
 ## Building the operators
 To complete the project, you need to build four different operators to stage the data, transform the data, and run checks on data quality.

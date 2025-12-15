@@ -1,12 +1,9 @@
 # [Udacity Nanodegree] Data Engineering with AWS
-<div align="center">
+<div style="text-align: center;">
     <img src="https://cdn.sanity.io/images/tlr8oxjg/production/127c1f769355e645e449045e7d9088d3f55c0397-1456x816.png" height=400"/>
 </div>
 
-## Overview
-This repository provides solutions for course projects in the [Udacity Nanodegree of Data Engineering with AWS](https://www.udacity.com/course/data-engineer-nanodegree--nd027). There are a total of five couses in this nanodegree:
-
-__Course 1 - Welcome to Data Engineering with AWS Nanodegree Program__
+Link: https://www.udacity.com/course/data-engineer-nanodegree--nd027
 
 __Course 2 - Data Modeling__ \
 __Contents__: Intro (RDBMS, ACID, PostgreSQL, NoSQL, Cassandra, psycopg2), Relational Data Models (OLAP, OLTP, Normalization, Fact/Dimension, Star Schema, Snowflake Schema), NoSQL Data Models (Distributed DBs, CAP theorem, Cassandra, CQL) \
@@ -23,5 +20,3 @@ __Project__: STEDI Human Balance Analytics
 __Course 5 - Automate Data Pipeline__ \
 __Contents__: Data Pipelines (DAG, Airflow architecture, Operators, Tasks, Schedules, Hooks), Airflow and AWS (Airflow connections, Airflow variables, AWS Redshift Serverless, PostgresHook, PostgresOperator), Data Quality (Data lineage, Pipeline schedule, Data partitioning), Production Data Pipelines (Airflow Hooks, Plugins, Task boundaries, Airflow 1->2, Monitoring) \
 __Project__: Data Pipelines
-
-The detailed program syllabus can be found [here](Program_S yllabus.pdf).

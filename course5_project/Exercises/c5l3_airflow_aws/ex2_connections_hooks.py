@@ -5,8 +5,7 @@ from airflow.decorators import dag, task
 from airflow.models import Variable
 from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 
-# TODO: There is no code to modify in this exercise. We're going to create a connection and a
-# variable.
+# TODO: There is no code to modify in this exercise. We're going to create a connection and a variable.
 # 1. Open your browser to localhost:8080 and open Admin->Variables
 # 2. Click "Create"
 # 3. Set "Key" equal to "s3_bucket" and set "Val" equal to "udacity-dend"
