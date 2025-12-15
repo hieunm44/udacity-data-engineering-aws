@@ -37,7 +37,7 @@ print(
 )
 
 # We are changing file formats
-out_path = "./lesson-2-spark-essentials/exercises/data/sparkify_log_small.csv"
+out_path = "data/sparkify_log_small.csv"
 
 # The filename alone didn't tell Spark the actual format, we need to do it here
 user_log_df.write.mode("overwrite").save(out_path, format="csv", header=True)

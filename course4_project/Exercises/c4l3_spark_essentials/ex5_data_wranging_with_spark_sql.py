@@ -19,13 +19,6 @@ user_log_df.printSchema()
 # The code below creates a temporary view against which you can run SQL queries.
 user_log_df.createOrReplaceTempView("user_log_table")
 
-# TODO: Question 1: Which page did user id ""(empty string) NOT visit?
-# TODO Question 2 - Reflect: hy might you prefer to use SQL over data frames? Why might you prefer data frames over SQL?
-# TODO Question 3: How many female users do we have in the data set?
-# TODO: Question 4: How many songs were played from the most played artist?
-# TODO: Question 5 (challenge): How many songs do users listen to on average between visiting our home page? Please round your answer to the closest integer.
-
-
 spark.sql('''
           SELECT * 
           FROM user_log_table 
@@ -79,3 +72,9 @@ songs_in_hour_df.show()
 songs_in_hour_pd = songs_in_hour_df.toPandas()
 
 print(songs_in_hour_pd)
+
+# TODO: Question 1: Which page did user id ""(empty string) NOT visit?
+# TODO Question 2 - Reflect: hy might you prefer to use SQL over data frames? Why might you prefer data frames over SQL?
+# TODO Question 3: How many female users do we have in the data set?
+# TODO: Question 4: How many songs were played from the most played artist?
+# TODO: Question 5 (challenge): How many songs do users listen to on average between visiting our home page? Please round your answer to the closest integer.

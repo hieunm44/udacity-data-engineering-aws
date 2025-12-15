@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, desc, udf, col
+from pyspark.sql.functions import desc, udf, col
 from pyspark.sql.functions import sum as Fsum
 from pyspark.sql.window import Window
 from pyspark.sql.types import IntegerType
@@ -14,7 +14,7 @@ spark = SparkSession \
         .appName("Data Frames practice") \
         .getOrCreate()
 
-logs_df = spark.read.json("/data/sparkify_log_small.json")
+logs_df = spark.read.json("data/sparkify_log_small.json")
 
 
 # TODO: Question 1: Which page did user id "" (empty string) NOT visit?
@@ -60,7 +60,7 @@ logs_df.filter(logs_df.page == 'NextSong') \
 # TODO: Question 5 (challenge): How many songs do users listen to on average between visiting our home page? Please round your answer to the closest integer.
 # filter out 0 sum and max sum to get more exact answer
 user_window = Window \
-    .partitionBy('userID') \
+    .partitionBy('userId') \
     .orderBy(desc('ts')) \
     .rangeBetween(Window.unboundedPreceding, 0)
 
@@ -69,10 +69,9 @@ ishome = udf(lambda ishome : int(ishome == 'Home'), IntegerType())
 # Filter only NextSong and Home pages, add 1 for each time they visit Home
 # Adding a column called period which is a specific interval between Home visits
 cusum = logs_df.filter((logs_df.page == 'NextSong') | (logs_df.page == 'Home')) \
-    .select('userID', 'page', 'ts') \
+    .select('userId', 'page', 'ts') \
     .withColumn('homevisit', ishome(col('page'))) \
-    .withColumn('period', Fsum('homevisit') \
-    .over(user_window)) 
+    .withColumn('period', Fsum('homevisit').over(user_window))
     
 # This will only show 'Home' in the first several rows due to default sorting
 
@@ -80,7 +79,7 @@ cusum.show(300)
 
 # See how many songs were listened to on average during each period
 cusum.filter((cusum.page == 'NextSong')) \
-    .groupBy('userID', 'period') \
+    .groupBy('userId', 'period') \
     .agg({'period':'count'}) \
     .agg({'count(period)':'avg'}) \
     .show()

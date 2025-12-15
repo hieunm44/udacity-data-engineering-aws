@@ -50,7 +50,7 @@ user_log_df.select(["userId", "firstname", "page", "song"]) \
 
 
 # TODO: Calculating Statistics by Hour
-get_hour = udf(lambda x: datetime.datetime.fromtimestamp(x / 1000.0). hour)
+get_hour = udf(lambda x: datetime.datetime.fromtimestamp(x / 1000.0).hour)
 
 user_log_df = user_log_df.withColumn("hour", get_hour(user_log_df.ts))
 
@@ -134,8 +134,7 @@ windowval = Window.partitionBy("userId") \
 # Fsum is a cumulative sum over a window - in this case a window showing all events for a user
 # TODO: Add a column called phase, 0 if the user hasn't downgraded yet, 1 if they have
 user_log_valid_df = user_log_valid_df \
-    .withColumn("phase", Fsum("downgraded") \
-    .over(windowval))
+    .withColumn("phase", Fsum("downgraded").over(windowval))
 
 user_log_valid_df.show()    
 
